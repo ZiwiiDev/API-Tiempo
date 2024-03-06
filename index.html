@@ -1,0 +1,66 @@
+<!----------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relación UD07: API del Tiempo · Oliver</title>
+
+  <!-- Asocio el HTML con el archivo CSS -->
+  <link type="text/css" rel="stylesheet" href="./css/style.css">
+
+  <!-- Enlazo el JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+
+  <!-- Agregar hojas de estilo de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <!-- Asocio el HTML con el archivo JS -->
+  <script src="./js/tiempo.js"></script>
+
+  <!-- Incluyo Leaflet CSS y JavaScript -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Asocio el HTML con AXIOS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<!----------------------------------------------------------------------------------------------->
+<body>
+    <!-- Oliver Fabián Stetcu Stepanov | 2º DAW -->
+    <h1 class="titulo">¡El <span>TIEMPO</span> con Oliver!</h1>
+
+    <hr><div class="ubicacion-container Campo">
+        <input type="text" id="ubicacionCampo" class="ubicacionCampo" placeholder="Name" required>
+        <label for="name" class="ubicacionLabel">Ubicación</label>
+    </div>
+
+    <div class="botones-container">
+        <!-- El primer botón es un botón va a mostrar la previsión del tiempo actual. -->
+        <button id="hoyBoton" type="button">¡Tiempo HOY!</button><br>
+
+        <!-- El botón la previsión para los diez próximos días y mostrar el mapa que nos proporciona Visual Crossing. -->
+        <button id="diezDiasBoton" type="button">¡Tiempo en 10 días!</button>
+
+        <!-- El segundo va a averiguar la posición gps actual y mostrarte la petición y el mapa. -->
+        <button id="averiguarPosicionActual" type="button">¡Averiguar posición actual!</button>
+    </div>
+
+    <!-- Para mostrar los errores -->
+    <div id="mensajeError"></div>
+    
+    <!-- Para mostrar los datos -->
+    <div id="cambia"></div>
+    <div id="datosAdicionales"></div>
+
+    <!-- Para mostrar el mapa del valor del input -->
+    <iframe id="mapa" loading="lazy"></iframe>
+
+    <!-- Mapa con Leaflet -->
+    <div id="map"></div>
+<!----------------------------------------------------------------------------------------------->
+</body>
+<!----------------------------------------------------------------------------------------------->
+</html>
+<!----------------------------------------------------------------------------------------------->

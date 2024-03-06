@@ -1,0 +1,294 @@
+/*------------------------------------------------------*/
+/* Oliver Fabián Stetcu Stepanov | 2º DAW */
+/*------------------------------------------------------*/
+:root {
+  /* Colores */
+  --black: #000000;
+  --gris: #9b9b9b;
+  --blanco: #f0f0f0;
+  --azulClarito: #38caef;
+  --azulOscuro: #116399;
+  --hover-boton: #1df2f0;
+  --color-borde: rgb(0, 255, 213);
+  --sombra-texto: #e94be8;
+  --color-rojo: red;
+
+  /* Gradient */
+  --gradient-form-linear: linear-gradient(to right, var(--azulOscuro), var(--azulClarito));
+}
+/*----------------------------------------*/
+/* Estilos para el <html> */
+html {
+  overflow-x: hidden;
+}
+
+/* Estilos para el cuerpo */
+body {
+  background-color: var(--black);
+}
+/*----------------------------------------*/
+/* Estilos para las Animaciones */
+@keyframes glitchAnimation {
+  0% {
+    clip-path: var(--movimiento1);
+    transform: translate(0px, -10px);
+  }
+
+  10% {
+    clip-path: var(--movimiento2);
+    transform: translate(-10px, 10px);
+  }
+
+  20% {
+    clip-path: var(--movimiento3);
+    transform: translate(10px, 0px);
+  }
+
+  30% {
+    clip-path: var(--movimiento4);
+    transform: translate(-10px, 10px);
+  }
+
+  40% {
+    clip-path: var(--movimiento5);
+    transform: translate(10px, -10px);
+  }
+
+  50% {
+    clip-path: var(--movimiento6);
+    transform: translate(-10px, 10px);
+  }
+
+  60% {
+    clip-path: var(--movimiento1);
+    transform: translate(10px, -10px);
+  }
+
+  70% {
+    clip-path: var(--movimiento3);
+    transform: translate(-10px, 10px);
+  }
+
+  80% {
+    clip-path: var(--movimiento2);
+    transform: translate(10px, -10px);
+  }
+
+  90% {
+    clip-path: var(--movimiento4);
+    transform: translate(-10px, 10px);
+  }
+
+  100% {
+    clip-path: var(--movimiento1);
+    transform: translate(0);
+  }
+}
+/*----------------------------------------*/
+/* Estilos para el título */
+.titulo {
+  color: var(--blanco);
+  text-align: center;
+}
+/*----------------------------------------*/
+/* Estilos para el contenedor de <label> e <input> */
+.ubicacion-container {
+  position: relative;
+  padding: 20px 0 0;
+  width: 100%;
+  border: 2px solid var(--blanco);
+  max-width: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  top: 30px;
+  left: 830px;
+  z-index: 1;
+}
+
+.ubicacionCampo {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--gris);
+  outline: 0;
+  font-size: 17px;
+  color: var(--blanco);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.ubicacionCampo::placeholder {
+  color: transparent;
+}
+
+.ubicacionCampo:placeholder-shown ~ .ubicacionLabel {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.ubicacionLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: var(--gris);
+  pointer-events: none;
+}
+
+.ubicacionCampo:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: var(--gradient-form-linear);
+  border-image-slice: 1;
+}
+
+.ubicacionCampo:focus ~ .ubicacionLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: var(--azulClarito);
+  font-weight: 700;
+}
+
+/* Estilos para el reset del <input> */
+.ubicacionCampo:required,
+.ubicacionCampo:invalid {
+  box-shadow: none;
+}
+/*----------------------------------------*/
+/* Estilos para los botones */
+button {
+  position: relative;
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  z-index: 1;
+  padding: 10px 50px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+span {
+  color: var(--azulClarito);
+  font-style: italic;
+  letter-spacing: 5px;
+}
+
+button::after {
+  position: relative;
+  padding: 10px 50px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color: var(--blanco);
+  background-color: transparent;
+}
+
+#hoyBoton {
+  top: 60px;
+  left: 570px;
+}
+
+#diezDiasBoton {
+  top: -4px;
+  left: 820px;
+}
+
+#averiguarPosicionActual {
+  top: -50px;
+  left: 1120px;
+}
+
+#hoyBoton::after,
+#diezDiasBoton::after,
+#averiguarPosicionActual::after {
+  --movimiento1: inset(50% 50% 50% 50%);
+  --movimiento2: inset(31% 0 40% 0);
+  --movimiento3: inset(39% 0 15% 0);
+  --movimiento4: inset(45% 0 40% 0);
+  --movimiento5: inset(45% 0 6% 0);
+  --movimiento6: inset(14% 0 61% 0);
+
+  display: block;
+  position: absolute;
+  clip-path: var(--movimiento1);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#hoyBoton::after {
+  content: "HOY";
+}
+
+#diezDiasBoton::after {
+  content: "10 días";
+}
+
+#averiguarPosicionActual::after {
+  content: "Posición Actual";
+}
+
+button:hover::after {
+  animation: glitchAnimation 1s;
+  text-shadow: 10 10px 10px var(--black);
+  animation-timing-function: steps(2, end);
+  text-shadow: -3px -3px 0px var(--hover-boton), 3px 3px 0px var(--sombra-texto);
+  background-color: transparent;
+  border: 3px solid var(--color-borde);
+}
+
+button:hover {
+  text-shadow: -1px -1px 0px var(--hover-boton), 1px 1px 0px var(--sombra-texto);
+}
+
+button:hover {
+  background-color: transparent;
+  border: 1px solid var(--color-borde);
+  box-shadow: 0px 10px 10px -10px var(--color-borde);
+}
+/*----------------------------------------*/
+#mensajeError {
+  color: var(--color-rojo);
+  font-weight: 600;
+}
+
+#mapa,
+#map {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 600px; 
+  height: 450px;
+}
+
+#mapa {
+  border: 0;
+}
+
+#cambia {
+  position: absolute;
+  top: 35%;
+  left: 30%;
+  color: var(--blanco);
+}
+
+#datosAdicionales {
+  position: absolute;
+  top: 36%;
+  left: 10%;
+  color: var(--blanco);
+}
+/*----------------------------------------*/
